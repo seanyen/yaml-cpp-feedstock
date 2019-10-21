@@ -164,6 +164,6 @@ Feedstock Maintainers
 
 * [@allanleal](https://github.com/allanleal/)
 * [@marcelotrevisani](https://github.com/marcelotrevisani/)
+* [@seanyen](https://github.com/seanyen/)
 * [@tadeu](https://github.com/tadeu/)
-* [@seanyen](https://github.com/seanyen)
 

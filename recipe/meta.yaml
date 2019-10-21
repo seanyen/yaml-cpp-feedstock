@@ -9,7 +9,7 @@ source:
   sha256: 77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win and vc<14]
 
 requirements:
@@ -28,6 +28,10 @@ test:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+  
+  commands:
+    - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
+    - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
 
 about:
   home: https://github.com/jbeder/yaml-cpp
