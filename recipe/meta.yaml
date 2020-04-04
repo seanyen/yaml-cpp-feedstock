@@ -7,9 +7,11 @@ package:
 source:
   url: https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-{{ version }}.tar.gz
   sha256: 77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed
+  patches:
+    - pkgconfig.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win and vc<14]
 
 requirements:
