@@ -88,6 +88,7 @@ jobs:
       condition: contains(variables['CONFIG'], 'vs2008')
 
     - script: |
+        set "PATH=C:\Miniconda\bin;%PATH%"
         conda.exe build "recipe" -m .ci_support\%CONFIG%.yaml
       displayName: Build recipe
       env:
