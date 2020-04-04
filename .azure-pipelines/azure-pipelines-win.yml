@@ -56,8 +56,6 @@ jobs:
 
     - task: CondaEnvironment@1
       inputs:
-        createCustomEnvironment: true
-        environmentName: 'test'
         packageSpecs: 'python=3.6 conda-build conda conda-forge::conda-forge-ci-setup=2' # Optional
         installOptions: "-c conda-forge"
         updateConda: true
