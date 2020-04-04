@@ -15,3 +15,6 @@ if errorlevel 1 exit 1
 REM Build step
 ninja install
 if errorlevel 1 exit 1
+
+:: debug
+type %LIBRARY_PREFIX%\lib\pkgconfig\yaml-cpp.pc
