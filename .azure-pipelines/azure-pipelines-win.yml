@@ -81,6 +81,7 @@ jobs:
     - script: |
         conda.exe remove conda-build --force -y
         pip install -e git://github.com/seanyen/conda-build@seanyen/patch-1#egg=conda-build
+        dir /s /b C:\Miniconda
       displayName: reinstall my conda-build
 
     # Special cased version setting some more things!
