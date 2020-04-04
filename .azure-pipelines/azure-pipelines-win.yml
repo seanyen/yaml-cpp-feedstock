@@ -80,7 +80,7 @@ jobs:
 
     - script: |
         conda.exe remove conda-build --force -y
-        pip install -e git://github.com/seanyen/conda-build#egg=conda-build
+        pip install -e git://github.com/seanyen/conda-build@seanyen/patch-1#egg=conda-build
       displayName: reinstall my conda-build
 
     # Special cased version setting some more things!
