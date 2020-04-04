@@ -78,6 +78,11 @@ jobs:
       continueOnError: true
       displayName: remove strawberryperl
 
+    - script: |
+        conda.exe remove conda-build --force -y
+        pip install -e git://github.com/seanyen/conda-build#egg=conda-build
+      displayName: reinstall my conda-build
+
     # Special cased version setting some more things!
     - script: |
         conda.exe build "recipe" -m .ci_support\%CONFIG%.yaml
