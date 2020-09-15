@@ -22,6 +22,18 @@ requirements:
     - cmake
     - ninja
 
+test:
+  files:
+    - test
+  requires:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+  commands:
+    - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
+    - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
+
 outputs:
   - name: yaml-cpp
   - name: yaml-cpp-static
@@ -41,19 +53,6 @@ outputs:
     test:
       commands:
         - test -f $PREFIX/lib/libyaml-cpp.a  # [not win]
-
-test:
-  files:
-    - test
-  requires:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - cmake
-    - ninja
-  commands:
-    - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
-    - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
-
 
 about:
   home: https://github.com/jbeder/yaml-cpp
