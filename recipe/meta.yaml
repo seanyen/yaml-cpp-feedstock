@@ -24,18 +24,6 @@ requirements:
 
 outputs:
   - name: yaml-cpp
-    test:
-      files:
-        - test
-      requires:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - cmake
-        - ninja
-      commands:
-        - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
-        - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
-
   - name: yaml-cpp-static
     script: build_static.sh  # [not win]
     build:
@@ -53,6 +41,18 @@ outputs:
     test:
       commands:
         - test -f $PREFIX/lib/libyaml-cpp.a  # [not win]
+
+test:
+  files:
+    - test
+  requires:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+  commands:
+    - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
+    - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
 
 
 about:
