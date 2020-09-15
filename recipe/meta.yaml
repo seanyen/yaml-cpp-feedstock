@@ -8,11 +8,12 @@ source:
   url: https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-{{ version }}.tar.gz
   sha256: 77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed
   patches:
-    - pkgconfig.patch
+    - pkgconfig.patch  # [win]
 
 build:
-  number: 3
-  skip: True  # [win and vc<14]
+  number: 4
+  run_exports:
+    - {{ pin_subpackage('yaml-cpp', max_pin='x.x') }}
 
 requirements:
   build:
@@ -21,19 +22,38 @@ requirements:
     - cmake
     - ninja
 
-test:
-  files:
-    - test
+outputs:
+  - name: yaml-cpp
+    test:
+      files:
+        - test
+      requires:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      commands:
+        - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
+        - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
 
-  requires:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - cmake
-    - ninja
-  
-  commands:
-    - test -f $PREFIX/lib/libyaml-cpp.so  # [not win]
-    - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
+  - name: yaml-cpp-static
+    script: build_static.sh
+    build:
+      skip: true  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - cmake
+        - ninja
+      host:
+        - {{ pin_subpackage('yaml-cpp', exact=True) }}
+      run:
+        - {{ pin_subpackage('yaml-cpp', exact=True) }}
+    test:
+      commands:
+        - test -f $PREFIX/lib/libyaml-cpp.a  # [not win]
+
 
 about:
   home: https://github.com/jbeder/yaml-cpp
