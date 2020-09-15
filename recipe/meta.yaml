@@ -37,7 +37,7 @@ outputs:
         - if not exist %LIBRARY_BIN%\\yaml-cpp.dll exit 1  # [win]
 
   - name: yaml-cpp-static
-    script: build_static.sh
+    script: build_static.sh  # [not win]
     build:
       skip: true  # [win]
     requirements:
