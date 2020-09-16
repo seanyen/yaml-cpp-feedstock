@@ -4,7 +4,7 @@ mkdir build
 cd build
 
 # Configure step
-cmake .. \
+cmake ${CMAKE_ARGS} .. \
     -GNinja \
     -DBUILD_SHARED_LIBS=ON \
     -DYAML_BUILD_SHARED_LIBS=ON \
