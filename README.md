@@ -5,7 +5,7 @@ Home: https://github.com/jbeder/yaml-cpp
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: yaml-cpp is a YAML parser and emitter in C++ matching the YAML 1.2 spec.
 
@@ -43,10 +43,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux</td>
+              <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6294&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -64,17 +64,17 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6294&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win</td>
+              <td>win_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6294&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=win&configuration=win_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/yaml-cpp-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -91,6 +91,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-yaml--cpp-green.svg)](https://anaconda.org/conda-forge/yaml-cpp) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/yaml-cpp.svg)](https://anaconda.org/conda-forge/yaml-cpp) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/yaml-cpp.svg)](https://anaconda.org/conda-forge/yaml-cpp) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/yaml-cpp.svg)](https://anaconda.org/conda-forge/yaml-cpp) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-yaml--cpp--static-green.svg)](https://anaconda.org/conda-forge/yaml-cpp-static) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/yaml-cpp-static.svg)](https://anaconda.org/conda-forge/yaml-cpp-static) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/yaml-cpp-static.svg)](https://anaconda.org/conda-forge/yaml-cpp-static) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/yaml-cpp-static.svg)](https://anaconda.org/conda-forge/yaml-cpp-static) |
 
 Installing yaml-cpp
 ===================
@@ -101,10 +102,10 @@ Installing `yaml-cpp` from the `conda-forge` channel can be achieved by adding `
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `yaml-cpp` can be installed with:
+Once the `conda-forge` channel has been enabled, `yaml-cpp, yaml-cpp-static` can be installed with:
 
 ```
-conda install yaml-cpp
+conda install yaml-cpp yaml-cpp-static
 ```
 
 It is possible to list all of the versions of `yaml-cpp` available on your platform with:
